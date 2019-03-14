@@ -4,8 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SimpleHttpComponent } from './simple-http/simple-http.component';
-import { YouTubeSearchService } from './services/youtube-search.service';
 import { YoutubeSearchComponent } from './youtube-search/youtube-search.component'
+import { youtubeSearchInjectables } from './youtube-search/you-tube-search.injectables';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { YoutubeSearchComponent } from './youtube-search/youtube-search.componen
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [YouTubeSearchService],
+  providers: [youtubeSearchInjectables],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
