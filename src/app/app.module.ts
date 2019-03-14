@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SimpleHttpComponent } from './simple-http/simple-http.component';
+import { YouTubeSearchService } from './services/youtube-search.service'
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { SimpleHttpComponent } from './simple-http/simple-http.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [YouTubeSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
