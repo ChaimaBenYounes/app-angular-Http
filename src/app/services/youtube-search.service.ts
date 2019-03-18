@@ -1,7 +1,6 @@
   import { Injectable, Inject } from '@angular/core';
   import { HttpClient } from '@angular/common/http';
   import { Observable } from 'rxjs';
-  import { map } from 'rxjs/operators';
   import { SearchResult } from './../models/search-result.model';
   
   /*
@@ -41,10 +40,11 @@
       ].join('&');
       const queryUrl = `${this.apiUrl}?${params}`;
       return this.http
-      .get(queryUrl)
-      .map(response => {
+      //Here we take the return value of http.get
+      //and use map to get the Response from the request
+      .get(queryUrl).map(response => {
         return <any>response['items'].map(item => {
-          // console.log("raw item", item); // uncomment if you want to debug
+          console.log("raw item", item); // uncomment if you want to debug
           return new SearchResult({
             id: item.id.videoId,
             title: item.snippet.title,
