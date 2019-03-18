@@ -43,7 +43,7 @@
       return this.http
       //Here we take the return value of http.get
       //and use map to get the Response from the request
-      .get(queryUrl).map(response => {
+      .get(queryUrl).pipe(map(response => {
         return <any>response['items'].map(item => {
           console.log("raw item", item); // uncomment if you want to debug
           return new SearchResult({
@@ -53,6 +53,6 @@
             thumbnailUrl: item.snippet.thumbnails.high.url
           });
         });
-      });
+      }));
     }
   }

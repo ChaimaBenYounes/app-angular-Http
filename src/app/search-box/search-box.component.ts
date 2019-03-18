@@ -24,29 +24,28 @@ export class SearchBoxComponent implements OnInit {
   //because inputs set on a component are not available in the constructor
   ngOnInit() {
     // convert the `keyup` event into an observable stream
-    const obs = fromEvent(this.elementRef.nativeElement, 'keyup')
-    .map((e: any) => e.target.value) // extract the value of the input
-    .filter((text: string) => text.length > 1) // filter out if empty
-    .debounceTime(250)
-    // only once every 250ms
-    .do(() => this.loading.emit(true))
-    // enable loading
-    // search, discarding old events if new input comes in
-    .map((query: string) => this.youTubeSearchService.search(query))
-    .switch()
-    // act on the return of the search
-    .subscribe(
-      (results: SearchResult[]) => { // on sucesss
-      this.loading.emit(false);
-      this.results.emit(results);
-      },
-      (err: any) => { // on error
-      console.log(err);
-      this.loading.emit(false);
-      },
-      () => { // on completion
-      this.loading.emit(false);
-      }
+    const obs = fromEvent(this.elementRef.nativeElement, 'keyup').pipe(
+
+      map((e: any) => e.target.value), // extract the value of the input
+      filter((text: string) => text.length > 1), // filter out if empty
+      debounceTime(250),                         // only once every 250ms
+      tap(() => this.loading.emit(true)),         // enable loading
+      // search, discarding old events if new input comes in
+      map((query: string) => this.youTubeSearchService.search(query)),
+      switchAll(),
+      // act on the return of the search
+      ).subscribe(
+        (results: SearchResult[]) => { // on sucesss
+          this.loading.emit(false);
+          this.results.emit(results);
+        },
+        (err: any) => { // on error
+          console.log(err);
+          this.loading.emit(false);
+        },
+        () => { // on completion
+          this.loading.emit(false);
+        }
       );
   }
 
