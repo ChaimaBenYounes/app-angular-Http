@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchResult } from './../models/search-result.model';
 
 @Component({
   selector: 'app-youtube-search',
@@ -6,14 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./youtube-search.component.css']
 })
 export class YoutubeSearchComponent implements OnInit {
-
+  results: SearchResult[];
+  loading: boolean;
   constructor() { }
 
   ngOnInit() {
   }
 
-  updateResults($event){
-    
+  updateResults(results: SearchResult[]): void {
+    this.results = results;
+    // console.log("results:", this.results); // uncomment to take a look
   }
 
 }
