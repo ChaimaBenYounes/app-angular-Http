@@ -12,4 +12,8 @@ export class YoutubeSearchComponent implements OnInit {
   ngOnInit() {
   }
 
+  updateResults($event){
+    
+  }
+
 }

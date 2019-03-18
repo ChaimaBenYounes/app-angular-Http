@@ -1,7 +1,8 @@
   import { Injectable, Inject } from '@angular/core';
   import { HttpClient } from '@angular/common/http';
-  import { Observable } from 'rxjs';
   import { SearchResult } from './../models/search-result.model';
+  import { Observable } from 'rxjs';
+  import { map } from 'rxjs/operators';
   
   /*
     This API key may or may not work for you. Your best bet is to issue your own
