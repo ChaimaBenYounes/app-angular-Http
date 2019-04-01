@@ -10,11 +10,12 @@ export class SearchResultComponent implements OnInit {
   //SearchResult assigned to this component SearchBox.
   //The SearchResultComponent simply stores the SearchResult in the instance variable result .
   @Input() result: SearchResult;
-  videoUrl: string = 'result';
+  videoUrl: string;
 
   constructor() { }
 
   ngOnInit() {
+    this.videoUrl = 'https://www.youtube.com/embed/'+`${this.result.id}`;
   }
 
 }

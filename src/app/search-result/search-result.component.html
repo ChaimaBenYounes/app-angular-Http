@@ -7,7 +7,9 @@
   <p><a href="{{result.videoUrl}}"
   class="btn btn-default" role="button">
   Watch</a></p>
-    <iframe class="e2e-iframe-trusted-src" width="640" height="390" [src]="videoUrl"></iframe>
+
+    <iframe class="e2e-iframe-trusted-src" width="640" height="390" [src]="videoUrl | safeUrlYoutube "></iframe>
+
   </div>
   </div>
 </div>

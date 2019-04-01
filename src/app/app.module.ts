@@ -8,6 +8,7 @@ import { YoutubeSearchComponent } from './youtube-search/youtube-search.componen
 import { youtubeSearchInjectables } from './youtube-search/you-tube-search.injectables';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { SafeUrlYoutube } from './services/safeUrlYoutube.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SearchResultComponent } from './search-result/search-result.component';
     SimpleHttpComponent,
     YoutubeSearchComponent,
     SearchBoxComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    SafeUrlYoutube
   ],
   imports: [
     BrowserModule,
