@@ -10,6 +10,7 @@ export class SearchResultComponent implements OnInit {
   //SearchResult assigned to this component SearchBox.
   //The SearchResultComponent simply stores the SearchResult in the instance variable result .
   @Input() result: SearchResult;
+  videoUrl: string = 'result';
 
   constructor() { }
 
